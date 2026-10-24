@@ -4,208 +4,442 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#4b1426">
-<title>Vikas & Varsha | Wedding Invitation</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+<meta name="theme-color" content="#481321">
+<title>Vikas & Varsha | A Royal Wedding</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
 :root{
-  --wine:#4b1426;
-  --wine2:#641d35;
-  --dark:#2d0916;
-  --cream:#fff5df;
+  --wine:#481321;
+  --wine-light:#67273a;
+  --wine-deep:#280811;
+  --cream:#fbf2df;
   --paper:#fffaf0;
-  --gold:#d6b66e;
-  --rose:#e8c7c8;
-  --ink:#481426;
+  --gold:#d5b775;
+  --gold-soft:#e9d7a9;
+  --muted:#88716d;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
   background:var(--cream);
-  color:var(--ink);
-  font-family:'Playfair Display',Georgia,serif;
+  color:var(--wine);
+  font-family:'Cormorant Garamond',Georgia,serif;
   text-align:center;
   overflow-x:hidden;
 }
 button,a{-webkit-tap-highlight-color:transparent}
 button{font-family:inherit}
 .cover{
-  position:fixed;inset:0;z-index:50;
-  display:grid;place-items:center;
-  padding:22px;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:auto;
+  padding:32px 25px;
   color:var(--cream);
   background:
-    radial-gradient(ellipse at 50% 42%,#773047 0%,#53182b 52%,#310b19 100%);
+    radial-gradient(ellipse at 50% 37%,#713147 0%,#531a2c 44%,#310b18 100%);
   transition:opacity 1s ease,visibility 1s ease;
 }
-.cover:before,.cover:after{
-  content:"";position:absolute;pointer-events:none;
+.cover.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
 }
-.cover:before{
+.cover-frame{
+  position:absolute;
   inset:12px;
   border:1px solid var(--gold);
-  background:repeating-linear-gradient(132deg,transparent 0 24px,#d6b66e0b 25px 28px);
+  pointer-events:none;
 }
-.cover:after{
-  inset:28px;border:1px solid #d6b66e55;
+.cover-frame:after{
+  content:"";
+  position:absolute;
+  inset:7px;
+  border:1px solid #d5b77550;
 }
-.cover.closed{opacity:0;visibility:hidden;pointer-events:none}
-.cover-inner{
-  position:relative;z-index:1;width:min(100%,460px);
-  padding:42px 12px 34px;
+.cover-pattern{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.23;
+  background:repeating-linear-gradient(
+    133deg,transparent 0 30px,#c7a25d20 31px 33px
+  );
+  mask-image:linear-gradient(90deg,#000,transparent 15%,transparent 85%,#000);
 }
-.label{
-  font:300 11px 'Montserrat',sans-serif;
-  letter-spacing:5px;text-transform:uppercase;
+.cover-content{
+  width:min(100%,390px);
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:15px 0;
+  animation:arrive 1.3s ease both;
 }
-.cover .label{color:#ead39c}
-.floral{color:var(--gold);font-size:34px;margin:30px 0}
-.cover-names,.script-names{
-  font-family:'Great Vibes',cursive;
-  font-weight:400;
-  line-height:1.08;
+.eyebrow{
+  margin:0;
+  font:300 10px 'Montserrat',sans-serif;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:var(--gold-soft);
 }
-.cover-names{font-size:clamp(62px,15vw,94px);margin:28px 0 25px}
-.cover-names .amp{font-size:.55em;color:var(--gold)}
-.cover-subtitle{font-size:clamp(23px,6vw,34px);line-height:1.55;margin:20px auto}
-.gold-line{height:1px;width:170px;max-width:55%;background:var(--gold);margin:28px auto}
-.location-label{
-  font:300 12px 'Montserrat',sans-serif;
-  letter-spacing:3px;color:#e6cf9c;
+.ornament{
+  margin:clamp(24px,5vh,43px) 0 22px;
+  color:var(--gold);
+  font-size:30px;
+  line-height:1;
 }
-.open-circle{
-  width:142px;height:142px;border-radius:50%;
-  border:2px solid #e4c987;
-  background:var(--cream);color:var(--wine);
-  box-shadow:0 0 0 12px #d6b66e26,0 0 35px #e7c77720;
-  font:500 15px 'Montserrat',sans-serif;letter-spacing:2px;
-  cursor:pointer;margin:48px auto 30px;
-  transition:transform .25s,box-shadow .25s;
+.cover-title{
+  margin:0;
+  font:400 clamp(61px,15vw,83px)/.96 'Great Vibes',cursive;
+  color:#fff7e6;
 }
-.open-circle:active{transform:scale(.94)}
-.cover-foot{font:300 10px 'Montserrat',sans-serif;letter-spacing:3px;color:#e3cda0}
+.cover-title .amp{
+  font-size:.58em;
+  color:var(--gold);
+}
+.cover-subtitle{
+  font-size:clamp(23px,6vw,29px);
+  line-height:1.35;
+  margin:25px 0 0;
+  color:#f8eedb;
+}
+.divider{
+  height:1px;
+  width:105px;
+  background:var(--gold);
+  margin:25px auto;
+}
+.cover-location{
+  font:300 10px 'Montserrat',sans-serif;
+  letter-spacing:3px;
+  color:var(--gold-soft);
+}
+.open-area{
+  margin-top:clamp(32px,6vh,55px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
+}
+.open-button{
+  width:112px;
+  height:112px;
+  flex-shrink:0;
+  border-radius:50%;
+  border:1px solid var(--gold);
+  outline:1px solid #d5b77540;
+  outline-offset:6px;
+  background:var(--cream);
+  color:var(--wine);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  cursor:pointer;
+  box-shadow:0 8px 30px #16030b35;
+  transition:transform .3s,box-shadow .3s;
+}
+.open-button:active{transform:scale(.96)}
+.open-button strong{
+  font:500 12px 'Montserrat',sans-serif;
+  letter-spacing:2px;
+}
+.open-button span{font-size:18px;color:#97753c}
+.open-hint{
+  font:300 9px 'Montserrat',sans-serif;
+  letter-spacing:2.5px;
+  color:#e6d2ad;
+}
 .music{
-  position:fixed;right:18px;top:18px;z-index:40;
-  width:54px;height:54px;border-radius:50%;
-  border:1px solid var(--gold);background:var(--wine);color:var(--cream);
-  font-size:22px;box-shadow:0 5px 20px #0002;cursor:pointer;
+  position:fixed;
+  top:18px;
+  right:18px;
+  z-index:80;
+  width:47px;
+  height:47px;
+  border-radius:50%;
+  border:1px solid var(--gold);
+  background:var(--wine);
+  color:var(--cream);
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:0 5px 20px #0002;
 }
-.music.playing{animation:musicPulse 2s infinite}
+.music[hidden]{display:none}
 main{overflow:hidden}
 .page{position:relative;isolation:isolate}
-.dark-page{
+.dark{
   color:var(--cream);
-  background:radial-gradient(ellipse at 50% 28%,#68233b,var(--wine) 65%,var(--dark));
+  background:radial-gradient(ellipse at 50% 25%,#69283c,#481321 68%,#300b17);
 }
-.light-page{background:var(--cream)}
+.light{background:var(--cream)}
 .pattern:before{
-  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:repeating-linear-gradient(132deg,transparent 0 25px,#b68a4418 26px 28px);
-  mask-image:linear-gradient(to right,#000 0%,transparent 9%,transparent 91%,#000 100%);
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:repeating-linear-gradient(
+    132deg,transparent 0 27px,#b9975d14 28px 30px
+  );
+  mask-image:linear-gradient(90deg,#000,transparent 8%,transparent 92%,#000);
 }
 .intro{
-  min-height:100svh;padding:105px 22px 65px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:100svh;
+  padding:95px 22px 58px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
-.small-flower{color:var(--gold);font-size:30px;margin:24px 0}
-.script-names{font-size:clamp(65px,16vw,102px);margin:28px 0 22px}
-.script-names .amp{font-size:.7em}
-.person-name{font-size:clamp(29px,7vw,40px);margin:30px 0 8px}
-.parent{font:300 12px 'Montserrat',sans-serif;letter-spacing:1.5px;color:#e4cfae}
-.heart{font-size:43px;margin:30px 0;color:var(--cream)}
-.dates{font:400 13px 'Montserrat',sans-serif;letter-spacing:4px;color:#e5cd96;margin:32px 0}
-.scroll-hint{margin-top:65px;font:300 10px 'Montserrat',sans-serif;letter-spacing:4px;color:#d8c0b7}
-.section{padding:90px 22px}
-.guest-section{min-height:590px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.section h2{
-  font-size:clamp(39px,10vw,64px);line-height:1.14;
-  font-weight:400;margin:22px auto 26px;
+.flower{font-size:27px;color:var(--gold);margin:22px 0}
+.script{
+  font:400 clamp(65px,16vw,95px)/1.02 'Great Vibes',cursive;
+  margin:24px 0;
 }
-.guest-copy{font-size:clamp(21px,5.5vw,32px);line-height:1.65;max-width:570px;margin:35px auto}
-.guest-small{font:300 14px/1.9 'Montserrat',sans-serif;color:#806b69;max-width:550px;margin:auto}
-.events-section{padding-top:75px}
-.events-list{max-width:640px;margin:50px auto 0;display:grid;gap:24px}
-.event-card{
-  position:relative;background:var(--paper);border:1px solid #cdb87e;
-  padding:45px 22px 40px;min-height:245px;
-  box-shadow:0 8px 30px #4b14260a;
+.script .amp{font-size:.68em}
+.person-name{font-size:clamp(28px,7vw,38px);margin:22px 0 5px}
+.parent{
+  font:300 11px 'Montserrat',sans-serif;
+  letter-spacing:1.5px;
+  color:#e0c9b0;
 }
-.event-card:before,.event-card:after{
-  position:absolute;color:#d8c795;font-size:23px;content:"❦";
+.heart{font-size:38px;margin:24px 0}
+.dates{
+  font:300 11px 'Montserrat',sans-serif;
+  letter-spacing:3px;
+  color:var(--gold-soft);
+  margin:29px 0;
 }
-.event-card:before{top:16px;left:18px}
-.event-card:after{bottom:12px;right:18px;transform:rotate(180deg)}
-.event-card h3{font-size:clamp(34px,8vw,48px);font-weight:400;margin:17px 0}
-.event-date{font:500 14px 'Montserrat',sans-serif;line-height:1.8}
-.event-details{font:300 14px/1.9 'Montserrat',sans-serif;color:#796d6b;margin:10px auto}
-.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:25px}
-.outline-button{
-  display:inline-block;padding:14px 20px;border:1px solid #bda56a;
-  color:var(--wine);text-decoration:none;font:300 11px 'Montserrat',sans-serif;
-  letter-spacing:2px;background:transparent;cursor:pointer;
+.scroll-note{
+  margin-top:35px;
+  font:300 9px 'Montserrat',sans-serif;
+  letter-spacing:3px;
+  color:#ddc6b9;
 }
-.outline-button:active{background:#f0e4c9}
-.count-section{padding:95px 18px 105px}
-.count-title{font-size:clamp(45px,11vw,68px);line-height:1.12;margin:28px auto 50px}
-.countdown{max-width:620px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
-.timebox{border:1px solid #d9b9bf66;padding:22px 3px}
-.timebox strong{font-size:clamp(27px,7vw,43px);font-weight:500;display:block}
-.timebox span{display:block;margin-top:12px;font:300 9px 'Montserrat',sans-serif;letter-spacing:2px;color:#e2c99a}
-.family-section{padding:95px 22px}
-.family-card{max-width:600px;margin:40px auto 0;border:1px solid #cdb87e;background:var(--paper);padding:45px 15px}
-.family-card p{font-size:clamp(25px,6vw,36px);line-height:1.7;margin:0}
-.end-section{padding:100px 20px 115px}
-.end-section h2{font-size:clamp(47px,12vw,78px)}
-.end-section .script-names{color:#f2dba0;font-size:clamp(65px,16vw,100px)}
-footer{background:var(--dark);color:#e8d3a5;padding:25px 15px;font:300 10px 'Montserrat',sans-serif;letter-spacing:3px}
+.section{padding:80px 22px}
+.section-heading{
+  font-size:clamp(42px,10vw,62px);
+  line-height:1.05;
+  font-weight:400;
+  margin:22px auto;
+}
+.welcome{
+  min-height:570px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+.welcome-copy{
+  font-size:clamp(23px,6vw,32px);
+  line-height:1.5;
+  max-width:540px;
+  margin:26px auto;
+}
+.welcome-small{
+  font:300 13px/1.9 'Montserrat',sans-serif;
+  color:var(--muted);
+  max-width:480px;
+}
+.line{height:1px;width:100px;background:var(--gold);margin:24px auto}
+.events{padding-top:75px;padding-bottom:95px}
+.event-list{
+  max-width:900px;
+  margin:43px auto 0;
+  display:grid;
+  gap:20px;
+}
+.event{
+  position:relative;
+  padding:37px 19px 34px;
+  border:1px solid #c8b47e;
+  background:var(--paper);
+  box-shadow:0 12px 35px #4b14260a;
+}
+.event:before,.event:after{
+  content:"❧";
+  position:absolute;
+  color:#c9ad6b;
+  font-size:20px;
+}
+.event:before{top:12px;left:14px}
+.event:after{bottom:9px;right:14px;transform:rotate(180deg)}
+.event h3{
+  font-size:clamp(34px,8vw,46px);
+  font-weight:400;
+  margin:10px 0 17px;
+}
+.event-date{
+  font:500 12px/1.8 'Montserrat',sans-serif;
+}
+.event-details{
+  font:300 13px/1.9 'Montserrat',sans-serif;
+  color:#82716d;
+}
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-top:20px;
+}
+.action{
+  display:inline-block;
+  border:1px solid #bca46c;
+  padding:12px 17px;
+  color:var(--wine);
+  text-decoration:none;
+  font:300 10px 'Montserrat',sans-serif;
+  letter-spacing:1.7px;
+  background:transparent;
+}
+.action:active{background:#f0e3c8}
+.countdown-section{padding:85px 18px 95px}
+.countdown-title{
+  font-size:clamp(43px,10vw,65px);
+  line-height:1.08;
+  margin:25px auto 38px;
+}
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:7px;
+  max-width:600px;
+  margin:auto;
+}
+.time{
+  border:1px solid #d7b77555;
+  padding:20px 2px;
+}
+.time strong{
+  display:block;
+  font-size:clamp(25px,7vw,39px);
+  font-weight:500;
+}
+.time span{
+  display:block;
+  margin-top:10px;
+  font:300 8px 'Montserrat',sans-serif;
+  letter-spacing:1.5px;
+  color:var(--gold-soft);
+}
+.family{padding:85px 22px}
+.family-card{
+  max-width:580px;
+  margin:35px auto 0;
+  border:1px solid #c8b47e;
+  background:var(--paper);
+  padding:35px 12px;
+}
+.family-card p{font-size:clamp(26px,7vw,36px);margin:8px}
+.closing{padding:90px 20px 100px}
+.closing h2{font-size:clamp(45px,11vw,70px);font-weight:400}
+.closing .script{color:var(--gold-soft);font-size:clamp(68px,16vw,95px)}
+footer{
+  background:var(--wine-deep);
+  color:var(--gold-soft);
+  padding:23px 12px;
+  font:300 9px 'Montserrat',sans-serif;
+  letter-spacing:3px;
+}
 .to-top{
-  position:fixed;right:22px;bottom:20px;z-index:30;
-  width:48px;height:48px;border-radius:50%;border:1px solid var(--gold);
-  color:var(--wine);background:var(--cream);font-size:20px;cursor:pointer;
-  opacity:0;pointer-events:none;transition:opacity .3s;
+  position:fixed;
+  right:19px;
+  bottom:20px;
+  z-index:50;
+  width:43px;
+  height:43px;
+  border:1px solid var(--gold);
+  border-radius:50%;
+  background:var(--cream);
+  color:var(--wine);
+  font-size:19px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .3s;
 }
-.to-top.visible{opacity:1;pointer-events:auto}
+.to-top.show{opacity:1;pointer-events:auto}
 .particle{
-  position:fixed;z-index:3;top:-30px;left:0;pointer-events:none;
-  color:var(--gold);opacity:.5;
-  animation:fall linear forwards;
+  position:fixed;
+  z-index:5;
+  top:-25px;
+  left:0;
+  pointer-events:none;
+  animation:floatDown linear forwards;
 }
-.particle.petal{background:#d5a3a7;width:11px;height:17px;border-radius:70% 30% 65% 35%}
-.particle.bubble{width:9px;height:9px;border:1px solid #e6ca8a;border-radius:50%;box-shadow:0 0 8px #f7e4ae66}
-.reveal{opacity:0;transform:translateY(25px);transition:opacity .8s,transform .8s}
-.reveal.show{opacity:1;transform:translateY(0)}
-@keyframes fall{
-  0%{transform:translate3d(0,-5vh,0) rotate(0deg);opacity:0}
-  10%{opacity:.65}
-  50%{transform:translate3d(35px,50vh,0) rotate(200deg)}
-  100%{transform:translate3d(-25px,110vh,0) rotate(420deg);opacity:0}
+.petal{
+  width:9px;height:14px;
+  border-radius:75% 25% 65% 35%;
+  background:#d8b6b5;
+  opacity:.48;
 }
-@keyframes musicPulse{50%{box-shadow:0 0 0 8px #d6b66e20}}
+.bubble{
+  width:8px;height:8px;
+  border:1px solid var(--gold);
+  border-radius:50%;
+  opacity:.55;
+}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s,transform .9s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@keyframes floatDown{
+  0%{transform:translate3d(0,-5vh,0) rotate(0deg)}
+  50%{transform:translate3d(28px,50vh,0) rotate(190deg)}
+  100%{transform:translate3d(-20px,110vh,0) rotate(380deg);opacity:0}
+}
+@keyframes arrive{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
 @media(min-width:700px){
+  .cover-inner{max-width:430px}
+  .event-list{grid-template-columns:1fr 1fr}
   .section{padding-left:40px;padding-right:40px}
-  .events-list{grid-template-columns:1fr 1fr;max-width:1000px}
-  .event-card{padding:45px 24px}
+}
+@media(max-height:700px){
+  .cover{padding-top:25px;padding-bottom:25px}
+  .ornament{margin:18px 0}
+  .cover-subtitle{margin-top:16px}
+  .divider{margin:17px auto}
+  .open-area{margin-top:25px}
+  .open-button{width:96px;height:96px}
 }
 @media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{animation-duration:.01ms!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+  *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
 <body>
 
-<!-- Opening cover: one round button for entry and music -->
 <section class="cover" id="cover">
-  <div class="cover-inner">
-    <p class="label">Wedding Invitation</p>
-    <div class="floral">❧ ♥ ❧</div>
-    <h1 class="cover-names">Vikas <span class="amp">&</span><br>Varsha</h1>
+  <div class="cover-frame"></div>
+  <div class="cover-pattern"></div>
+  <div class="cover-content">
+    <p class="eyebrow">Wedding Invitation</p>
+    <div class="ornament">❧ ♥ ❧</div>
+    <h1 class="cover-title">Vikas <span class="amp">&</span><br>Varsha</h1>
     <p class="cover-subtitle">With the blessings of our<br>families</p>
-    <div class="gold-line"></div>
-    <p class="location-label">MITHI · THARPARKAR</p>
-    <button class="open-circle" id="openInvite" aria-label="Open invitation and play music">OPEN<br>♫</button>
-    <p class="cover-foot">TAP TO ENTER & PLAY MUSIC</p>
+    <div class="divider"></div>
+    <p class="cover-location">MITHI · THARPARKAR</p>
+    <div class="open-area">
+      <button class="open-button" id="openInvite">
+        <strong>OPEN</strong>
+        <span>♫</span>
+      </button>
+      <p class="open-hint">TAP TO ENTER & PLAY MUSIC</p>
+    </div>
   </div>
 </section>
 
@@ -214,92 +448,88 @@ footer{background:var(--dark);color:#e8d3a5;padding:25px 15px;font:300 10px 'Mon
 <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
 <main>
-  <!-- Page 2: Names and families -->
-  <section class="page dark-page pattern intro" id="home">
-    <div class="small-flower">❧</div>
-    <p class="label">A New Beginning</p>
-    <div class="small-flower">❧ ♥ ❧</div>
-    <h1 class="script-names reveal">Vikas <span class="amp">&</span><br>Varsha</h1>
+  <section class="page dark pattern intro">
+    <div class="flower">❧</div>
+    <p class="eyebrow">A New Beginning</p>
+    <div class="flower">❧ ♥ ❧</div>
+    <h1 class="script reveal">Vikas <span class="amp">&</span><br>Varsha</h1>
     <p class="person-name">Vikas Shivani</p>
     <p class="parent">S/o Piyaro Shivani</p>
     <div class="heart">♡</div>
     <p class="person-name">Varsha Amrani</p>
     <p class="parent">D/o Harji Amrani</p>
     <p class="dates">19 — 21 NOVEMBER 2026</p>
-    <p class="scroll-hint">SCROLL TO EXPLORE ↓</p>
+    <p class="scroll-note">SCROLL TO EXPLORE ↓</p>
   </section>
 
-  <!-- Guest welcome -->
-  <section class="page light-page pattern section guest-section">
-    <div class="small-flower">❧</div>
-    <p class="label">Dear Guests</p>
-    <h2 class="reveal">With joyful<br>hearts</h2>
-    <div class="gold-line"></div>
-    <p class="guest-copy">We invite you to join us as we celebrate the beautiful beginning of a new journey together.</p>
-    <p class="guest-small">Your presence, blessings and love will make our celebration truly special.</p>
+  <section class="page light pattern section welcome">
+    <div class="flower">❧</div>
+    <p class="eyebrow" style="color:var(--wine)">Dear Guests</p>
+    <h2 class="section-heading reveal">With joyful<br>hearts</h2>
+    <div class="line"></div>
+    <p class="welcome-copy">We invite you to join us as we celebrate the beautiful beginning of a new journey together.</p>
+    <p class="welcome-small">Your presence, blessings and love will make our celebration truly special.</p>
   </section>
 
-  <!-- Events -->
-  <section class="page light-page pattern section events-section">
-    <div class="small-flower">❧</div>
-    <p class="label">Save the Dates</p>
-    <h2 class="reveal">Wedding<br>Celebrations</h2>
-    <div class="events-list">
+  <section class="page light pattern section events">
+    <div class="flower">❧</div>
+    <p class="eyebrow" style="color:var(--wine)">Save the Dates</p>
+    <h2 class="section-heading reveal">Wedding<br>Celebrations</h2>
+    <div class="event-list">
 
-      <article class="event-card reveal">
+      <article class="event reveal">
         <h3>Reception</h3>
         <p class="event-date">17 November 2026 · 8:00 PM – 11:00 PM</p>
         <p class="event-details">Cafe Thar<br>Mithi Main Bypass</p>
         <div class="actions">
-          <a class="outline-button" target="_blank" rel="noopener"
-             href="https://www.google.com/maps/search/?api=1&query=Cafe+Thar+Mithi+Main+Bypass">OPEN MAP</a>
-          <a class="outline-button" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Vikas%20%26%20Varsha%20Reception&dates=20261117T150000Z/20261117T180000Z&location=Cafe%20Thar%2C%20Mithi%20Main%20Bypass">ADD CALENDAR</a>
+          <a class="action" target="_blank" rel="noopener"
+          href="https://www.google.com/maps/search/?api=1&query=Cafe+Thar+Mithi+Main+Bypass">OPEN MAP</a>
+          <a class="action" target="_blank" rel="noopener"
+          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Vikas%20and%20Varsha%20Reception&dates=20261117T150000Z/20261117T180000Z&location=Cafe%20Thar%2C%20Mithi%20Main%20Bypass">ADD CALENDAR</a>
         </div>
       </article>
 
-      <article class="event-card reveal">
+      <article class="event reveal">
         <h3>Mehndi</h3>
         <p class="event-date">18 November 2026</p>
         <p class="event-details">Time & location to be announced</p>
       </article>
 
-      <article class="event-card reveal">
+      <article class="event reveal">
         <h3>Wedding Ceremony</h3>
         <p class="event-date">20 November 2026</p>
         <p class="event-details">Mithi, Tharparkar</p>
       </article>
 
-      <article class="event-card reveal">
+      <article class="event reveal">
         <h3>Baraat</h3>
         <p class="event-date">21 November 2026 · 6:00 AM</p>
         <p class="event-details">Mithi to Chehler<br>District Tharparkar</p>
         <div class="actions">
-          <a class="outline-button" target="_blank" rel="noopener"
-             href="https://www.google.com/maps/dir/?api=1&origin=Mithi%2C+Tharparkar%2C+Pakistan&destination=Chehler%2C+Tharparkar%2C+Pakistan">OPEN MAP</a>
+          <a class="action" target="_blank" rel="noopener"
+          href="https://www.google.com/maps/dir/?api=1&origin=Mithi%2C+Tharparkar%2C+Pakistan&destination=Chehler%2C+Tharparkar%2C+Pakistan">OPEN MAP</a>
         </div>
       </article>
 
     </div>
   </section>
 
-  <!-- Countdown -->
-  <section class="page dark-page pattern section count-section">
-    <div class="small-flower">❧</div>
-    <p class="label">The Countdown Begins</p>
-    <h2 class="count-title reveal">Until our<br>celebration</h2>
+  <section class="page dark pattern section countdown-section">
+    <div class="flower">❧</div>
+    <p class="eyebrow">The Countdown Begins</p>
+    <h2 class="countdown-title reveal">Until our<br>celebration</h2>
     <div class="countdown" id="countdown">
-      <div class="timebox"><strong>--</strong><span>DAYS</span></div>
-      <div class="timebox"><strong>--</strong><span>HOURS</span></div>
-      <div class="timebox"><strong>--</strong><span>MINUTES</span></div>
-      <div class="timebox"><strong>--</strong><span>SECONDS</span></div>
+      <div class="time"><strong>--</strong><span>DAYS</span></div>
+      <div class="time"><strong>--</strong><span>HOURS</span></div>
+      <div class="time"><strong>--</strong><span>MINUTES</span></div>
+      <div class="time"><strong>--</strong><span>SECONDS</span></div>
     </div>
   </section>
 
-  <!-- Family -->
-  <section class="page light-page pattern section family-section">
-    <div class="small-flower">❧</div>
-    <p class="label">With Love From</p>
-    <h2 class="reveal">Shivani Family</h2>
+  <section class="page light pattern section family">
+    <div class="flower">❧</div>
+    <p class="eyebrow" style="color:var(--wine)">With Love From</p>
+    <h2 class="section-heading reveal">Shivani Family</h2>
     <div class="family-card">
       <p>Vikas Shivani</p>
       <p>&</p>
@@ -307,12 +537,11 @@ footer{background:var(--dark);color:#e8d3a5;padding:25px 15px;font:300 10px 'Mon
     </div>
   </section>
 
-  <!-- Closing -->
-  <section class="page dark-page pattern section end-section">
-    <div class="small-flower">❧ ♥ ❧</div>
-    <p class="label">Thank You for Celebrating With Us</p>
+  <section class="page dark pattern section closing">
+    <div class="flower">❧ ♥ ❧</div>
+    <p class="eyebrow">Thank You for Celebrating With Us</p>
     <h2 class="reveal">See you there</h2>
-    <div class="script-names">Vikas &<br>Varsha</div>
+    <div class="script">Vikas &<br>Varsha</div>
     <p class="dates">19 — 21 NOVEMBER 2026</p>
   </section>
 </main>
@@ -326,91 +555,77 @@ footer{background:var(--dark);color:#e8d3a5;padding:25px 15px;font:300 10px 'Mon
   const music = document.getElementById('weddingMusic');
   const musicToggle = document.getElementById('musicToggle');
   const toTop = document.getElementById('toTop');
-  let opened = false;
 
-  async function startMusic(){
+  openButton.addEventListener('click', async () => {
+    cover.classList.add('hide');
+    musicToggle.hidden = false;
     try {
       await music.play();
       musicToggle.textContent = '♫';
-      musicToggle.classList.add('playing');
-    } catch (error) {
+    } catch (e) {
       musicToggle.textContent = '♪';
-      musicToggle.classList.remove('playing');
     }
-  }
-
-  openButton.addEventListener('click', async () => {
-    if (opened) return;
-    opened = true;
-    cover.classList.add('closed');
-    musicToggle.hidden = false;
-    await startMusic();
-    window.scrollTo({top:0,behavior:'smooth'});
   });
 
   musicToggle.addEventListener('click', async () => {
     if (music.paused) {
-      await startMusic();
+      try {
+        await music.play();
+        musicToggle.textContent = '♫';
+      } catch (e) {
+        musicToggle.textContent = '♪';
+      }
     } else {
       music.pause();
       musicToggle.textContent = '♪';
-      musicToggle.classList.remove('playing');
     }
   });
 
-  // Countdown to the main wedding date in Pakistan time.
-  function updateCountdown(){
+  function countdown(){
     const target = new Date('2026-11-20T00:00:00+05:00').getTime();
-    const diff = target - Date.now();
-    const values = diff <= 0 ? [0,0,0,0] : [
-      Math.floor(diff/86400000),
-      Math.floor(diff%86400000/3600000),
-      Math.floor(diff%3600000/60000),
-      Math.floor(diff%60000/1000)
+    const diff = Math.max(0, target - Date.now());
+    const values = [
+      Math.floor(diff / 86400000),
+      Math.floor(diff % 86400000 / 3600000),
+      Math.floor(diff % 3600000 / 60000),
+      Math.floor(diff % 60000 / 1000)
     ];
-    document.querySelectorAll('#countdown strong').forEach((el,i)=>{
+    document.querySelectorAll('#countdown strong').forEach((el,i) => {
       el.textContent = String(values[i]).padStart(2,'0');
     });
   }
-  updateCountdown();
-  setInterval(updateCountdown,1000);
+  countdown();
+  setInterval(countdown,1000);
 
-  // Reveal headings and cards as the visitor scrolls.
-  const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
       if(entry.isIntersecting){
-        entry.target.classList.add('show');
+        entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
   },{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Floating petals and small bubble-like particles.
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function makeParticle(){
-    if(reducedMotion || document.hidden) return;
-    const el = document.createElement('span');
-    const bubble = Math.random() > .48;
-    el.className = 'particle ' + (bubble ? 'bubble' : 'petal');
-    el.style.left = Math.random()*100 + 'vw';
-    el.style.animationDuration = (9 + Math.random()*9) + 's';
-    el.style.animationDelay = '0s';
-    el.style.opacity = (.22 + Math.random()*.4).toFixed(2);
-    document.body.appendChild(el);
-    setTimeout(()=>el.remove(),19000);
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function createParticle(){
+    if(reduced || document.hidden) return;
+    const p = document.createElement('span');
+    p.className = 'particle ' + (Math.random() > .5 ? 'petal' : 'bubble');
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (10 + Math.random() * 9) + 's';
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(),20000);
   }
-  for(let i=0;i<12;i++) setTimeout(makeParticle,i*280);
-  setInterval(makeParticle,850);
+  for(let i=0;i<9;i++) setTimeout(createParticle,i*300);
+  setInterval(createParticle,1000);
 
-  window.addEventListener('scroll',()=>{
-    toTop.classList.toggle('visible',window.scrollY>500);
+  window.addEventListener('scroll',() => {
+    toTop.classList.toggle('show',window.scrollY > 450);
   },{passive:true});
-  toTop.addEventListener('click',()=>{
-    window.scrollTo({top:0,behavior:'smooth'});
-  });
+  toTop.addEventListener('click',() => window.scrollTo({top:0,behavior:'smooth'}));
 })();
 </script>
 </body>
-                                                </html>
-                                                
+            </html>
+            
