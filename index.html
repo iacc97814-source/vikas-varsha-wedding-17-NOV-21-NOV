@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#4b101d">
+<title>Vikas & Varsha | Wedding Invitation</title>
+
+<style>
+:root {
+  --wine: #4b101d;
+  --deep: #290911;
+  --gold: #d8b66b;
+  --cream: #fff8e9;
+  --muted: #72564e;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--wine);
+  background: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  text-align: center;
+}
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+.cover {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(ellipse at center, #77283b 0%, var(--wine) 58%, var(--deep) 100%);
+  color: var(--cream);
+  transition: opacity 1s ease, visibility 1s ease;
+}
+.cover.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.cover-card {
+  width: min(100%, 390px);
+  padding: 44px 25px;
+  border: 1px solid var(--gold);
+  outline: 1px solid #d8b66b55;
+  outline-offset: 8px;
+  animation: floatIn 1.2s ease both;
+}
+.ornament { color: var(--gold); font-size: 35px; }
+.eyebrow {
+  margin: 15px 0;
+  letter-spacing: 4px;
+  font: 11px Arial, sans-serif;
+  text-transform: uppercase;
+}
+.cover h1 {
+  margin: 18px 0;
+  font-size: clamp(38px, 10vw, 55px);
+  font-weight: normal;
+  line-height: 1.15;
+}
+.cover h1 span { color: var(--gold); font-style: italic; }
+.gold-button {
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+  padding: 14px 25px;
+  background: var(--gold);
+  color: var(--deep);
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: transform .2s, background .2s;
+}
+.gold-button:active { transform: scale(.96); }
+main { overflow: hidden; }
+.hero {
+  min-height: 92vh;
+  padding: 85px 20px 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(ellipse at top, #fffdf5, transparent 75%),
+    var(--cream);
+  border-bottom: 1px solid #d8b66b88;
+}
+.small-label {
+  font: 11px Arial, sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-size: clamp(45px, 12vw, 78px);
+  font-weight: normal;
+  line-height: 1.12;
+  margin: 25px 0;
+}
+.hero h1 span { color: #9a5b36; font-style: italic; }
+.flourish { color: #b48b42; font-size: 35px; }
+.hero .date {
+  margin-top: 18px;
+  letter-spacing: 3px;
+  font-size: 14px;
+}
+.section { padding: 65px 20px; }
+.section h2 {
+  font-size: clamp(30px, 8vw, 43px);
+  font-weight: normal;
+  margin: 12px 0 20px;
+}
+.section p {
+  line-height: 1.8;
+  max-width: 540px;
+  margin: 12px auto;
+}
+.gold-line {
+  width: 75px;
+  height: 1px;
+  background: #b48b42;
+  margin: 22px auto;
+}
+.countdown {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px auto;
+}
+.time-box {
+  width: 75px;
+  padding: 15px 5px;
+  border: 1px solid #d8b66b99;
+  background: white;
+}
+.time-box strong { display: block; font-size: 26px; font-weight: normal; }
+.time-box span {
+  display: block;
+  margin-top: 6px;
+  font: 9px Arial, sans-serif;
+  letter-spacing: 1px;
+}
+.events {
+  background: #f4ead7;
+}
+.event-card {
+  max-width: 460px;
+  margin: 18px auto;
+  padding: 28px 20px;
+  background: #fffaf0;
+  border: 1px solid #d8b66b88;
+  box-shadow: 0 8px 25px #4b101d0c;
+}
+.event-card .symbol { font-size: 30px; color: #a77936; }
+.event-card h3 { font-size: 27px; font-weight: normal; margin: 12px 0; }
+.event-card .event-date {
+  color: #976f36;
+  font: 12px Arial, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.map-link {
+  display: inline-block;
+  margin-top: 13px;
+  padding: 11px 18px;
+  border: 1px solid var(--wine);
+  border-radius: 24px;
+  color: var(--wine);
+  text-decoration: none;
+  font: 12px Arial, sans-serif;
+}
+.scratch-section { background: var(--wine); color: var(--cream); }
+.scratch-section .gold-line { background: var(--gold); }
+.scratch-section .small-label { color: var(--gold); }
+.heart-wrap {
+  width: min(76vw, 285px);
+  aspect-ratio: 1;
+  margin: 28px auto;
+  position: relative;
+  clip-path: polygon(
+    50% 92%, 42% 85%, 15% 60%, 5% 43%,
+    4% 29%, 11% 16%, 25% 10%, 38% 14%,
+    50% 26%, 62% 14%, 75% 10%, 89% 16%,
+    96% 29%, 95% 43%, 85% 60%, 58% 85%
+  );
+  background: var(--gold);
+  touch-action: none;
+}
+.heart-message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: var(--deep);
+  background: #f5dfaa;
+}
+.heart-message strong { font-size: 24px; font-weight: normal; }
+.heart-message span { margin-top: 10px; font: 11px Arial, sans-serif; }
+#scratchCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: crosshair;
+}
+#scratchHint { color: #f2dca7; font-size: 13px; }
+footer {
+  padding: 35px 20px;
+  background: var(--deep);
+  color: var(--cream);
+  line-height: 1.9;
+}
+footer span { color: var(--gold); }
+.music-button {
+  position: fixed;
+  right: 16px;
+  bottom: 18px;
+  z-index: 10;
+  width: 49px;
+  height: 49px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: var(--wine);
+  color: var(--gold);
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px #0002;
+}
+.reveal { animation: rise .9s ease both; }
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- COVER -->
+<div class="cover" id="cover">
+  <div class="cover-card">
+    <div class="ornament">❧ ❦ ❧</div>
+    <p class="eyebrow">A Wedding Invitation</p>
+    <h1>Vikas <span>&</span><br>Varsha</h1>
+    <p style="color:#f0dcb2;line-height:1.8">
+      Together with our families,<br>
+      we invite you to celebrate our love.
+    </p>
+    <div class="gold-line"></div>
+    <p class="eyebrow">20 November 2026 · Mithi</p>
+    <button class="gold-button" id="openButton">OPEN INVITATION ♡</button>
+    <p style="font:11px Arial,sans-serif;color:#ead6b3;margin-top:20px">
+      Tap to open your invitation
+    </p>
+  </div>
+</div>
+
+<!-- Music starts after the visitor taps OPEN -->
+<audio id="weddingMusic" src="./1792831114811.mp3" loop preload="none"></audio>
+<button class="music-button" id="musicButton" aria-label="Toggle wedding music" title="Music">♫</button>
+
+<main>
+  <section class="hero">
+    <div class="flourish">❦</div>
+    <p class="small-label">With the blessings of our families</p>
+    <h1 class="reveal">Vikas <span>&</span><br>Varsha</h1>
+    <div class="gold-line"></div>
+    <p>Two hearts, one beautiful journey.</p>
+    <p class="date">19 — 21 NOVEMBER 2026</p>
+    <p style="margin-top:25px">Mithi, Tharparkar</p>
+    <div class="flourish">✧</div>
+  </section>
+
+  <section class="section">
+    <p class="small-label">Save the Date</p>
+    <h2>Our Wedding Day</h2>
+    <div class="gold-line"></div>
+    <p>
+      With love and the blessings of our parents, we joyfully invite
+      you to share in the celebration of our wedding.
+    </p>
+    <p style="margin-top:24px">20 November 2026</p>
+    <div class="countdown" id="countdown">
+      <div class="time-box"><strong>--</strong><span>DAYS</span></div>
+      <div class="time-box"><strong>--</strong><span>HOURS</span></div>
+      <div class="time-box"><strong>--</strong><span>MINUTES</span></div>
+      <div class="time-box"><strong>--</strong><span>SECONDS</span></div>
+    </div>
+  </section>
+
+  <section class="section events">
+    <p class="small-label">The Celebrations</p>
+    <h2>Wedding Events</h2>
+    <div class="gold-line"></div>
+
+    <article class="event-card">
+      <div class="symbol">✿</div>
+      <p class="event-date">17 November 2026</p>
+      <h3>Reception</h3>
+      <p>8:00 PM – 11:00 PM</p>
+      <p><strong>Cafe Thar</strong><br>Mithi Main Bypass</p>
+      <a class="map-link"
+         href="https://www.google.com/maps/search/?api=1&query=Cafe+Thar+Mithi+Main+Bypass"
+         target="_blank" rel="noopener">VIEW ON GOOGLE MAPS ↗</a>
+    </article>
+
+    <article class="event-card">
+      <div class="symbol">❀</div>
+      <p class="event-date">18 November 2026</p>
+      <h3>Mehndi</h3>
+      <p>A beautiful evening of colour, music and family.</p>
+      <p>Time and venue to be announced.</p>
+    </article>
+
+    <article class="event-card">
+      <div class="symbol">♡</div>
+      <p class="event-date">20 November 2026</p>
+      <h3>Wedding Ceremony</h3>
+      <p>A special day as two families become one.</p>
+      <p>Mithi, Tharparkar</p>
+    </article>
+
+    <article class="event-card">
+      <div class="symbol">✧</div>
+      <p class="event-date">21 November 2026 · 6:00 AM</p>
+      <h3>Baraat</h3>
+      <p><strong>Mithi to Chehler</strong></p>
+      <a class="map-link"
+         href="https://www.google.com/maps/dir/?api=1&origin=Mithi%2C+Tharparkar%2C+Pakistan&destination=Chehler%2C+Tharparkar%2C+Pakistan"
+         target="_blank" rel="noopener">VIEW ROUTE ON MAPS ↗</a>
+    </article>
+  </section>
+
+  <section class="section">
+    <p class="small-label">With Love & Blessings</p>
+    <h2>Our Families</h2>
+    <div class="gold-line"></div>
+    <p>Vikas Shivani</p>
+    <p style="font-size:13px">Son of Piyaro Shivani</p>
+    <div class="flourish" style="margin:15px">♡</div>
+    <p>Varsha Amrani</p>
+    <p style="font-size:13px">Daughter of Harji Amrani</p>
+  </section>
+
+  <section class="section scratch-section">
+    <p class="small-label">A Little Surprise</p>
+    <h2>Scratch to Reveal</h2>
+    <p>Use your finger to scratch the heart and reveal our special message!</p>
+
+    <div class="heart-wrap" id="heartWrap">
+      <div class="heart-message">
+        <strong>Save the Date!</strong>
+        <span>20 NOVEMBER 2026</span>
+        <span>VIKAS & VARSHA</span>
+      </div>
+      <canvas id="scratchCanvas"></canvas>
+    </div>
+    <p id="scratchHint">♡ Scratch here with your finger ♡</p>
+    <p id="scratchCongrats" hidden>🎉 We can't wait to celebrate with you! 🎉</p>
+  </section>
+
+  <section class="section">
+    <div class="flourish">❦</div>
+    <h2>We Await Your Presence</h2>
+    <p>Your presence and blessings will make our celebration even more special.</p>
+    <p style="margin-top:25px">With love,</p>
+    <h2 style="font-size:32px">Vikas & Varsha</h2>
+  </section>
+</main>
+
+<footer>
+  <div style="font-size:25px;color:#d8b66b">❦</div>
+  Made with love for<br>
+  <span>Vikas Shivani & Varsha Amrani</span><br>
+  Mithi, Tharparkar · November 2026
+</footer>
+
+<script>
+(() => {
+  const cover = document.getElementById("cover");
+  const openButton = document.getElementById("openButton");
+  const music = document.getElementById("weddingMusic");
+  const musicButton = document.getElementById("musicButton");
+
+  let musicOn = false;
+
+  async function playMusic() {
+    try {
+      await music.play();
+      musicOn = true;
+      musicButton.textContent = "♫";
+      musicButton.title = "Pause music";
+    } catch (error) {
+      musicOn = false;
+      musicButton.textContent = "♪";
+      musicButton.title = "Tap to play music";
+    }
+  }
+
+  openButton.addEventListener("click", async () => {
+    cover.classList.add("hidden");
+    await playMusic();
+    document.getElementById("main");
+  });
+
+  musicButton.addEventListener("click", async () => {
+    if (music.paused) {
+      await playMusic();
+    } else {
+      music.pause();
+      musicOn = false;
+      musicButton.textContent = "♪";
+      musicButton.title = "Play music";
+    }
+  });
+
+  // Wedding countdown: 20 November 2026
+  function updateCountdown() {
+    const target = new Date("2026-11-20T00:00:00+05:00").getTime();
+    const now = Date.now();
+    const distance = target - now;
+    const boxes = document.querySelectorAll("#countdown .time-box strong");
+
+    if (distance <= 0) {
+      boxes[0].textContent = "♡";
+      boxes[1].textContent = "♡";
+      boxes[2].textContent = "♡";
+      boxes[3].textContent = "♡";
+      return;
+    }
+
+    const values = [
+      Math.floor(distance / 86400000),
+      Math.floor((distance % 86400000) / 3600000),
+      Math.floor((distance % 3600000) / 60000),
+      Math.floor((distance % 60000) / 1000)
+    ];
+    boxes.forEach((box, i) => box.textContent = String(values[i]).padStart(2, "0"));
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // Finger/mouse scratch reveal
+  const canvas = document.getElementById("scratchCanvas");
+  const wrap = document.getElementById("heartWrap");
+  const ctx = canvas.getContext("2d");
+  const hint = document.getElementById("scratchHint");
+  const congrats = document.getElementById("scratchCongrats");
+
+  let scratching = false;
+  let revealed = false;
+
+  function setupScratch() {
+    const rect = wrap.getBoundingClientRect();
+    const dpr = Math.max(1, window.devicePixelRatio || 1);
+
+    canvas.width = Math.round(rect.width * dpr);
+    canvas.height = Math.round(rect.height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.globalCompositeOperation = "source-over";
+
+    const gradient = ctx.createLinearGradient(0, 0, rect.width, rect.height);
+    gradient.addColorStop(0, "#ead19a");
+    gradient.addColorStop(0.5, "#b68b43");
+    gradient.addColorStop(1, "#f2dfb1");
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, rect.width, rect.height);
+
+    ctx.fillStyle = "#4b101d";
+    ctx.textAlign = "center";
+    ctx.font = "18px Georgia";
+    ctx.fillText("SCRATCH ME", rect.width / 2, rect.height / 2 - 8);
+    ctx.font = "12px Arial";
+    ctx.fillText("♡  TO REVEAL  ♡", rect.width / 2, rect.height / 2 + 18);
+
+    ctx.globalCompositeOperation = "destination-out";
+  }
+
+  function scratchAt(event) {
+    if (!scratching || revealed) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const point = event.touches ? event.touches[0] : event;
+    if (!point) return;
+
+    const x = point.clientX - rect.left;
+    const y = point.clientY - rect.top;
+
+    ctx.beginPath();
+    ctx.arc(x, y, 20, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Check how much of the scratch layer has been cleared.
+    const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+    let cleared = 0;
+    const total = pixels.length / 4;
+    for (let i = 3; i < pixels.length; i += 4 * 40) {
+      if (pixels[i] < 50) cleared++;
+    }
+    if (cleared / Math.ceil(total / 40) > 0.48) {
+      revealed = true;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      hint.hidden = true;
+      congrats.hidden = false;
+    }
+  }
+
+  canvas.addEventListener("pointerdown", event => {
+    scratching = true;
+    canvas.setPointerCapture?.(event.pointerId);
+    scratchAt(event);
+  });
+  canvas.addEventListener("pointermove", scratchAt);
+  canvas.addEventListener("pointerup", () => scratching = false);
+  canvas.addEventListener("pointercancel", () => scratching = false);
+
+  setupScratch();
+  window.addEventListener("resize", () => {
+    if (!revealed) setupScratch();
+  });
+})();
+</script>
+</body>
+  </html>
+  
