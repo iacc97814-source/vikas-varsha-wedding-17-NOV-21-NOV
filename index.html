@@ -35,7 +35,6 @@ body{
 button,a{-webkit-tap-highlight-color:transparent}
 button{font-family:inherit}
 
-/* GANESH LOGO */
 .ganesh-logo{
   width:clamp(85px,24vw,125px);
   height:clamp(85px,24vw,125px);
@@ -45,9 +44,9 @@ button{font-family:inherit}
   filter:drop-shadow(0 0 12px #d5b77555);
 }
 .cover-logo{
-  width:clamp(95px,27vw,135px);
-  height:clamp(95px,27vw,135px);
-  margin-bottom:18px;
+  width:clamp(90px,25vw,125px);
+  height:clamp(90px,25vw,125px);
+  margin-bottom:15px;
 }
 
 .cover{
@@ -58,356 +57,120 @@ button{font-family:inherit}
   align-items:center;
   justify-content:center;
   overflow:auto;
-  padding:32px 25px;
+  padding:25px;
   color:var(--cream);
-  background:
-    radial-gradient(ellipse at 50% 37%,#713147 0%,#531a2c 44%,#310b18 100%);
+  background:radial-gradient(ellipse at 50% 37%,#713147 0%,#531a2c 44%,#310b18 100%);
   transition:opacity 1s ease,visibility 1s ease;
 }
-.cover.hide{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-}
-.cover-frame{
-  position:absolute;
-  inset:12px;
-  border:1px solid var(--gold);
-  pointer-events:none;
-}
-.cover-frame:after{
-  content:"";
-  position:absolute;
-  inset:7px;
-  border:1px solid #d5b77550;
-}
+.cover.hide{opacity:0;visibility:hidden;pointer-events:none}
+.cover-frame{position:absolute;inset:12px;border:1px solid var(--gold);pointer-events:none}
+.cover-frame:after{content:"";position:absolute;inset:7px;border:1px solid #d5b77550}
 .cover-pattern{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  opacity:.23;
-  background:repeating-linear-gradient(
-    133deg,transparent 0 30px,#c7a25d20 31px 33px
-  );
+  position:absolute;inset:0;pointer-events:none;opacity:.23;
+  background:repeating-linear-gradient(133deg,transparent 0 30px,#c7a25d20 31px 33px);
   mask-image:linear-gradient(90deg,#000,transparent 15%,transparent 85%,#000);
 }
 .cover-content{
-  width:min(100%,390px);
-  position:relative;
-  z-index:1;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:15px 0;
-  animation:arrive 1.3s ease both;
+  width:min(100%,390px);position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:15px 0;animation:arrive 1.3s ease both;
 }
 .eyebrow{
-  margin:0;
-  font:300 10px 'Montserrat',sans-serif;
-  letter-spacing:5px;
-  text-transform:uppercase;
-  color:var(--gold-soft);
+  margin:0;font:300 10px 'Montserrat',sans-serif;
+  letter-spacing:5px;text-transform:uppercase;color:var(--gold-soft);
 }
-.ornament{
-  margin:clamp(18px,4vh,35px) 0 22px;
-  color:var(--gold);
-  font-size:30px;
-  line-height:1;
-}
+.ornament{margin:20px 0;color:var(--gold);font-size:30px;line-height:1}
 .cover-title{
-  margin:0;
-  font:400 clamp(61px,15vw,83px)/.96 'Great Vibes',cursive;
-  color:#fff7e6;
+  margin:0;font:400 clamp(61px,15vw,83px)/.96 'Great Vibes',cursive;color:#fff7e6;
 }
-.cover-title .amp{
-  font-size:.58em;
-  color:var(--gold);
-}
-.cover-subtitle{
-  font-size:clamp(23px,6vw,29px);
-  line-height:1.35;
-  margin:25px 0 0;
-  color:#f8eedb;
-}
-.divider{
-  height:1px;
-  width:105px;
-  background:var(--gold);
-  margin:25px auto;
-}
-.cover-location{
-  font:300 10px 'Montserrat',sans-serif;
-  letter-spacing:3px;
-  color:var(--gold-soft);
-}
-.open-area{
-  margin-top:clamp(25px,5vh,45px);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:20px;
-}
+.cover-title .amp{font-size:.58em;color:var(--gold)}
+.cover-subtitle{font-size:clamp(23px,6vw,29px);line-height:1.35;margin:20px 0 0;color:#f8eedb}
+.divider{height:1px;width:105px;background:var(--gold);margin:20px auto}
+.cover-location{font:300 10px 'Montserrat',sans-serif;letter-spacing:3px;color:var(--gold-soft)}
+.open-area{margin-top:30px;display:flex;flex-direction:column;align-items:center;gap:20px}
 .open-button{
-  width:112px;
-  height:112px;
-  flex-shrink:0;
-  border-radius:50%;
-  border:1px solid var(--gold);
-  outline:1px solid #d5b77540;
-  outline-offset:6px;
-  background:var(--cream);
-  color:var(--wine);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:5px;
-  cursor:pointer;
-  box-shadow:0 8px 30px #16030b35;
-  transition:transform .3s,box-shadow .3s;
+  width:105px;height:105px;flex-shrink:0;border-radius:50%;
+  border:1px solid var(--gold);outline:1px solid #d5b77540;outline-offset:6px;
+  background:var(--cream);color:var(--wine);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:5px;cursor:pointer;
+  box-shadow:0 8px 30px #16030b35;transition:transform .3s,box-shadow .3s;
 }
 .open-button:active{transform:scale(.96)}
-.open-button strong{
-  font:500 12px 'Montserrat',sans-serif;
-  letter-spacing:2px;
-}
+.open-button strong{font:500 12px 'Montserrat',sans-serif;letter-spacing:2px}
 .open-button span{font-size:18px;color:#97753c}
-.open-hint{
-  font:300 9px 'Montserrat',sans-serif;
-  letter-spacing:2.5px;
-  color:#e6d2ad;
-}
+.open-hint{font:300 9px 'Montserrat',sans-serif;letter-spacing:2.5px;color:#e6d2ad}
 .music{
-  position:fixed;
-  top:18px;
-  right:18px;
-  z-index:80;
-  width:47px;
-  height:47px;
-  border-radius:50%;
-  border:1px solid var(--gold);
-  background:var(--wine);
-  color:var(--cream);
-  font-size:20px;
-  cursor:pointer;
-  box-shadow:0 5px 20px #0002;
+  position:fixed;top:18px;right:18px;z-index:80;width:47px;height:47px;
+  border-radius:50%;border:1px solid var(--gold);background:var(--wine);
+  color:var(--cream);font-size:20px;cursor:pointer;box-shadow:0 5px 20px #0002;
 }
 .music[hidden]{display:none}
 main{overflow:hidden}
 .page{position:relative;isolation:isolate}
-.dark{
-  color:var(--cream);
-  background:radial-gradient(ellipse at 50% 25%,#69283c,#481321 68%,#300b17);
-}
+.dark{color:var(--cream);background:radial-gradient(ellipse at 50% 25%,#69283c,#481321 68%,#300b17)}
 .light{background:var(--cream)}
 .pattern:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
-  background:repeating-linear-gradient(
-    132deg,transparent 0 27px,#b9975d14 28px 30px
-  );
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:repeating-linear-gradient(132deg,transparent 0 27px,#b9975d14 28px 30px);
   mask-image:linear-gradient(90deg,#000,transparent 8%,transparent 92%,#000);
 }
 .intro{
-  min-height:100svh;
-  padding:65px 22px 58px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+  min-height:100svh;padding:65px 22px 58px;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
 }
-.flower{font-size:27px;color:var(--gold);margin:22px 0}
-.script{
-  font:400 clamp(65px,16vw,95px)/1.02 'Great Vibes',cursive;
-  margin:24px 0;
-}
+.flower{font-size:27px;color:var(--gold);margin:18px 0}
+.script{font:400 clamp(65px,16vw,95px)/1.02 'Great Vibes',cursive;margin:24px 0}
 .script .amp{font-size:.68em}
 .person-name{font-size:clamp(28px,7vw,38px);margin:22px 0 5px}
-.parent{
-  font:300 11px 'Montserrat',sans-serif;
-  letter-spacing:1.5px;
-  color:#e0c9b0;
-}
-.heart{font-size:38px;margin:24px 0}
-.dates{
-  font:300 11px 'Montserrat',sans-serif;
-  letter-spacing:3px;
-  color:var(--gold-soft);
-  margin:29px 0;
-}
-.scroll-note{
-  margin-top:35px;
-  font:300 9px 'Montserrat',sans-serif;
-  letter-spacing:3px;
-  color:#ddc6b9;
-}
+.parent{font:300 11px 'Montserrat',sans-serif;letter-spacing:1.5px;color:#e0c9b0}
+.heart{font-size:38px;margin:20px 0}
+.dates{font:300 11px 'Montserrat',sans-serif;letter-spacing:3px;color:var(--gold-soft);margin:25px 0}
+.scroll-note{margin-top:30px;font:300 9px 'Montserrat',sans-serif;letter-spacing:3px;color:#ddc6b9}
 .section{padding:80px 22px}
-.section-heading{
-  font-size:clamp(42px,10vw,62px);
-  line-height:1.05;
-  font-weight:400;
-  margin:22px auto;
-}
-.welcome{
-  min-height:570px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-}
-.welcome-copy{
-  font-size:clamp(23px,6vw,32px);
-  line-height:1.5;
-  max-width:540px;
-  margin:26px auto;
-}
-.welcome-small{
-  font:300 13px/1.9 'Montserrat',sans-serif;
-  color:var(--muted);
-  max-width:480px;
-}
+.section-heading{font-size:clamp(42px,10vw,62px);line-height:1.05;font-weight:400;margin:22px auto}
+.welcome{min-height:570px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.welcome-copy{font-size:clamp(23px,6vw,32px);line-height:1.5;max-width:540px;margin:26px auto}
+.welcome-small{font:300 13px/1.9 'Montserrat',sans-serif;color:var(--muted);max-width:480px}
 .line{height:1px;width:100px;background:var(--gold);margin:24px auto}
 .events{padding-top:75px;padding-bottom:95px}
-.event-list{
-  max-width:900px;
-  margin:43px auto 0;
-  display:grid;
-  gap:20px;
-}
-.event{
-  position:relative;
-  padding:37px 19px 34px;
-  border:1px solid #c8b47e;
-  background:var(--paper);
-  box-shadow:0 12px 35px #4b14260a;
-}
-.event:before,.event:after{
-  content:"❧";
-  position:absolute;
-  color:#c9ad6b;
-  font-size:20px;
-}
+.event-list{max-width:900px;margin:43px auto 0;display:grid;gap:20px}
+.event{position:relative;padding:37px 19px 34px;border:1px solid #c8b47e;background:var(--paper);box-shadow:0 12px 35px #4b14260a}
+.event:before,.event:after{content:"❧";position:absolute;color:#c9ad6b;font-size:20px}
 .event:before{top:12px;left:14px}
 .event:after{bottom:9px;right:14px;transform:rotate(180deg)}
-.event h3{
-  font-size:clamp(34px,8vw,46px);
-  font-weight:400;
-  margin:10px 0 17px;
-}
-.event-date{
-  font:500 12px/1.8 'Montserrat',sans-serif;
-}
-.event-details{
-  font:300 13px/1.9 'Montserrat',sans-serif;
-  color:#82716d;
-}
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-  margin-top:20px;
-}
+.event h3{font-size:clamp(34px,8vw,46px);font-weight:400;margin:10px 0 17px}
+.event-date{font:500 12px/1.8 'Montserrat',sans-serif}
+.event-details{font:300 13px/1.9 'Montserrat',sans-serif;color:#82716d}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px}
 .action{
-  display:inline-block;
-  border:1px solid #bca46c;
-  padding:12px 17px;
-  color:var(--wine);
-  text-decoration:none;
-  font:300 10px 'Montserrat',sans-serif;
-  letter-spacing:1.7px;
-  background:transparent;
+  display:inline-block;border:1px solid #bca46c;padding:12px 17px;color:var(--wine);
+  text-decoration:none;font:300 10px 'Montserrat',sans-serif;letter-spacing:1.7px;background:transparent;
 }
 .action:active{background:#f0e3c8}
 .countdown-section{padding:85px 18px 95px}
-.countdown-title{
-  font-size:clamp(43px,10vw,65px);
-  line-height:1.08;
-  margin:25px auto 38px;
-}
+.countdown-title{font-size:clamp(43px,10vw,65px);line-height:1.08;margin:25px auto 38px}
 .countdown{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:7px;
-  max-width:600px;
-  margin:auto;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;max-width:600px;margin:auto;
 }
-.time{
-  border:1px solid #d7b77555;
-  padding:20px 2px;
-}
-.time strong{
-  display:block;
-  font-size:clamp(25px,7vw,39px);
-  font-weight:500;
-}
-.time span{
-  display:block;
-  margin-top:10px;
-  font:300 8px 'Montserrat',sans-serif;
-  letter-spacing:1.5px;
-  color:var(--gold-soft);
-}
+.time{border:1px solid #d7b77555;padding:20px 2px}
+.time strong{display:block;font-size:clamp(25px,7vw,39px);font-weight:500}
+.time span{display:block;margin-top:10px;font:300 8px 'Montserrat',sans-serif;letter-spacing:1.5px;color:var(--gold-soft)}
 .family{padding:85px 22px}
-.family-card{
-  max-width:580px;
-  margin:35px auto 0;
-  border:1px solid #c8b47e;
-  background:var(--paper);
-  padding:35px 12px;
-}
+.family-card{max-width:580px;margin:35px auto 0;border:1px solid #c8b47e;background:var(--paper);padding:35px 12px}
 .family-card p{font-size:clamp(26px,7vw,36px);margin:8px}
 .closing{padding:90px 20px 100px}
 .closing h2{font-size:clamp(45px,11vw,70px);font-weight:400}
 .closing .script{color:var(--gold-soft);font-size:clamp(68px,16vw,95px)}
-footer{
-  background:var(--wine-deep);
-  color:var(--gold-soft);
-  padding:23px 12px;
-  font:300 9px 'Montserrat',sans-serif;
-  letter-spacing:3px;
-}
+footer{background:var(--wine-deep);color:var(--gold-soft);padding:23px 12px;font:300 9px 'Montserrat',sans-serif;letter-spacing:3px}
 .to-top{
-  position:fixed;
-  right:19px;
-  bottom:20px;
-  z-index:50;
-  width:43px;
-  height:43px;
-  border:1px solid var(--gold);
-  border-radius:50%;
-  background:var(--cream);
-  color:var(--wine);
-  font-size:19px;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .3s;
+  position:fixed;right:19px;bottom:20px;z-index:50;width:43px;height:43px;
+  border:1px solid var(--gold);border-radius:50%;background:var(--cream);color:var(--wine);
+  font-size:19px;opacity:0;pointer-events:none;transition:opacity .3s;
 }
 .to-top.show{opacity:1;pointer-events:auto}
-.particle{
-  position:fixed;
-  z-index:5;
-  top:-25px;
-  left:0;
-  pointer-events:none;
-  animation:floatDown linear forwards;
-}
-.petal{
-  width:9px;height:14px;
-  border-radius:75% 25% 65% 35%;
-  background:#d8b6b5;
-  opacity:.48;
-}
-.bubble{
-  width:8px;height:8px;
-  border:1px solid var(--gold);
-  border-radius:50%;
-  opacity:.55;
-}
+.particle{position:fixed;z-index:5;top:-25px;left:0;pointer-events:none;animation:floatDown linear forwards}
+.petal{width:9px;height:14px;border-radius:75% 25% 65% 35%;background:#d8b6b5;opacity:.48}
+.bubble{width:8px;height:8px;border:1px solid var(--gold);border-radius:50%;opacity:.55}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s,transform .9s}
 .reveal.visible{opacity:1;transform:translateY(0)}
 @keyframes floatDown{
@@ -415,29 +178,22 @@ footer{
   50%{transform:translate3d(28px,50vh,0) rotate(190deg)}
   100%{transform:translate3d(-20px,110vh,0) rotate(380deg);opacity:0}
 }
-@keyframes arrive{
-  from{opacity:0;transform:translateY(14px)}
-  to{opacity:1;transform:translateY(0)}
-}
+@keyframes arrive{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @media(min-width:700px){
   .event-list{grid-template-columns:1fr 1fr}
   .section{padding-left:40px;padding-right:40px}
 }
 @media(max-height:700px){
-  .cover{padding-top:20px;padding-bottom:20px}
-  .cover-logo{width:78px;height:78px;margin-bottom:10px}
-  .ornament{margin:14px 0}
-  .cover-subtitle{margin-top:14px}
-  .divider{margin:16px auto}
-  .open-area{margin-top:20px}
-  .open-button{width:88px;height:88px}
+  .cover{padding-top:18px;padding-bottom:18px}
+  .cover-logo{width:70px;height:70px;margin-bottom:8px}
+  .ornament{margin:12px 0}
+  .cover-subtitle{margin-top:12px}
+  .divider{margin:14px auto}
+  .open-area{margin-top:18px}
+  .open-button{width:82px;height:82px}
 }
 @media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{
-    animation-duration:.01ms!important;
-    transition-duration:.01ms!important;
-    scroll-behavior:auto!important
-  }
+  *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
@@ -447,9 +203,7 @@ footer{
   <div class="cover-frame"></div>
   <div class="cover-pattern"></div>
   <div class="cover-content">
-
     <img src="./ganesh-logo.png" alt="Lord Ganesha" class="ganesh-logo cover-logo">
-
     <p class="eyebrow">Wedding Invitation</p>
     <div class="ornament">❧ ♥ ❧</div>
     <h1 class="cover-title">Vikas <span class="amp">&</span><br>Varsha</h1>
@@ -458,8 +212,7 @@ footer{
     <p class="cover-location">MITHI · THARPARKAR</p>
     <div class="open-area">
       <button class="open-button" id="openInvite">
-        <strong>OPEN</strong>
-        <span>♫</span>
+        <strong>OPEN</strong><span>♫</span>
       </button>
       <p class="open-hint">TAP TO ENTER & PLAY MUSIC</p>
     </div>
@@ -472,9 +225,7 @@ footer{
 
 <main>
   <section class="page dark pattern intro">
-
     <img src="./ganesh-logo.png" alt="Lord Ganesha" class="ganesh-logo">
-
     <div class="flower">❧</div>
     <p class="eyebrow">A New Beginning</p>
     <div class="flower">❧ ♥ ❧</div>
@@ -501,7 +252,6 @@ footer{
     <div class="flower">❧</div>
     <p class="eyebrow" style="color:var(--wine)">Wedding Events</p>
     <h2 class="section-heading reveal">Wedding<br>Celebrations</h2>
-
     <div class="event-list">
 
       <article class="event reveal">
@@ -509,10 +259,8 @@ footer{
         <p class="event-date">17 November 2026 · 8:00 PM – 11:00 PM</p>
         <p class="event-details">Cafe Thar<br>Mithi Main Bypass</p>
         <div class="actions">
-          <a class="action" target="_blank" rel="noopener"
-          href="https://www.google.com/maps/search/?api=1&query=Cafe+Thar+Mithi+Main+Bypass">OPEN MAP</a>
-          <a class="action" target="_blank" rel="noopener"
-          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Vikas%20and%20Varsha%20Reception&dates=20261117T150000Z/20261117T180000Z&location=Cafe%20Thar%2C%20Mithi%20Main%20Bypass">ADD CALENDAR</a>
+          <a class="action" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Cafe+Thar+Mithi+Main+Bypass">OPEN MAP</a>
+          <a class="action" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Vikas%20and%20Varsha%20Reception&dates=20261117T150000Z/20261117T180000Z&location=Cafe%20Thar%2C%20Mithi%20Main%20Bypass">ADD CALENDAR</a>
         </div>
       </article>
 
@@ -527,8 +275,7 @@ footer{
         <p class="event-date">21 November 2026</p>
         <p class="event-details">Mithi to Chehler<br>District Tharparkar</p>
         <div class="actions">
-          <a class="action" target="_blank" rel="noopener"
-          href="https://www.google.com/maps/dir/?api=1&origin=Mithi%2C+Tharparkar%2C+Pakistan&destination=Chehler%2C+Tharparkar%2C+Pakistan">OPEN MAP</a>
+          <a class="action" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Mithi%2C+Tharparkar%2C+Pakistan&destination=Chehler%2C+Tharparkar%2C+Pakistan">OPEN MAP</a>
         </div>
       </article>
 
@@ -545,6 +292,9 @@ footer{
       <div class="time"><strong>--</strong><span>MINUTES</span></div>
       <div class="time"><strong>--</strong><span>SECONDS</span></div>
     </div>
+    <p class="welcome-small" style="color:var(--gold-soft);margin:25px auto 0">
+      Celebrations: 17–21 November 2026
+    </p>
   </section>
 
   <section class="page light pattern section family">
@@ -552,9 +302,7 @@ footer{
     <p class="eyebrow" style="color:var(--wine)">With Love From</p>
     <h2 class="section-heading reveal">Shivani Family</h2>
     <div class="family-card">
-      <p>Vikas Shivani</p>
-      <p>&</p>
-      <p>Varsha Amrani</p>
+      <p>Vikas Shivani</p><p>&</p><p>Varsha Amrani</p>
     </div>
   </section>
 
@@ -602,19 +350,23 @@ footer{
     }
   });
 
+  // Countdown to the first wedding event: Reception on 17 November 2026.
   function countdown(){
-    const target = new Date('2026-11-20T00:00:00+05:00').getTime();
+    const target = new Date('2026-11-17T00:00:00+05:00').getTime();
     const diff = Math.max(0, target - Date.now());
+
     const values = [
       Math.floor(diff / 86400000),
-      Math.floor(diff % 86400000 / 3600000),
-      Math.floor(diff % 3600000 / 60000),
-      Math.floor(diff % 60000 / 1000)
+      Math.floor((diff % 86400000) / 3600000),
+      Math.floor((diff % 3600000) / 60000),
+      Math.floor((diff % 60000) / 1000)
     ];
+
     document.querySelectorAll('#countdown strong').forEach((el,i) => {
       el.textContent = String(values[i]).padStart(2,'0');
     });
   }
+
   countdown();
   setInterval(countdown,1000);
 
@@ -626,9 +378,11 @@ footer{
       }
     });
   },{threshold:.12});
+
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   function createParticle(){
     if(reduced || document.hidden) return;
     const p = document.createElement('span');
@@ -638,12 +392,14 @@ footer{
     document.body.appendChild(p);
     setTimeout(() => p.remove(),20000);
   }
+
   for(let i=0;i<9;i++) setTimeout(createParticle,i*300);
   setInterval(createParticle,1000);
 
   window.addEventListener('scroll',() => {
     toTop.classList.toggle('show',window.scrollY > 450);
   },{passive:true});
+
   toTop.addEventListener('click',() => window.scrollTo({top:0,behavior:'smooth'}));
 })();
 </script>
