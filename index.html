@@ -34,6 +34,22 @@ body{
 }
 button,a{-webkit-tap-highlight-color:transparent}
 button{font-family:inherit}
+
+/* GANESH LOGO */
+.ganesh-logo{
+  width:clamp(85px,24vw,125px);
+  height:clamp(85px,24vw,125px);
+  object-fit:contain;
+  display:block;
+  margin:0 auto 18px;
+  filter:drop-shadow(0 0 12px #d5b77555);
+}
+.cover-logo{
+  width:clamp(95px,27vw,135px);
+  height:clamp(95px,27vw,135px);
+  margin-bottom:18px;
+}
+
 .cover{
   position:fixed;
   inset:0;
@@ -94,7 +110,7 @@ button{font-family:inherit}
   color:var(--gold-soft);
 }
 .ornament{
-  margin:clamp(24px,5vh,43px) 0 22px;
+  margin:clamp(18px,4vh,35px) 0 22px;
   color:var(--gold);
   font-size:30px;
   line-height:1;
@@ -126,7 +142,7 @@ button{font-family:inherit}
   color:var(--gold-soft);
 }
 .open-area{
-  margin-top:clamp(32px,6vh,55px);
+  margin-top:clamp(25px,5vh,45px);
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -198,7 +214,7 @@ main{overflow:hidden}
 }
 .intro{
   min-height:100svh;
-  padding:95px 22px 58px;
+  padding:65px 22px 58px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -404,20 +420,24 @@ footer{
   to{opacity:1;transform:translateY(0)}
 }
 @media(min-width:700px){
-  .cover-inner{max-width:430px}
   .event-list{grid-template-columns:1fr 1fr}
   .section{padding-left:40px;padding-right:40px}
 }
 @media(max-height:700px){
-  .cover{padding-top:25px;padding-bottom:25px}
-  .ornament{margin:18px 0}
-  .cover-subtitle{margin-top:16px}
-  .divider{margin:17px auto}
-  .open-area{margin-top:25px}
-  .open-button{width:96px;height:96px}
+  .cover{padding-top:20px;padding-bottom:20px}
+  .cover-logo{width:78px;height:78px;margin-bottom:10px}
+  .ornament{margin:14px 0}
+  .cover-subtitle{margin-top:14px}
+  .divider{margin:16px auto}
+  .open-area{margin-top:20px}
+  .open-button{width:88px;height:88px}
 }
 @media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  *,*:before,*:after{
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important
+  }
 }
 </style>
 </head>
@@ -427,6 +447,9 @@ footer{
   <div class="cover-frame"></div>
   <div class="cover-pattern"></div>
   <div class="cover-content">
+
+    <img src="./ganesh-logo.png" alt="Lord Ganesha" class="ganesh-logo cover-logo">
+
     <p class="eyebrow">Wedding Invitation</p>
     <div class="ornament">❧ ♥ ❧</div>
     <h1 class="cover-title">Vikas <span class="amp">&</span><br>Varsha</h1>
@@ -449,6 +472,9 @@ footer{
 
 <main>
   <section class="page dark pattern intro">
+
+    <img src="./ganesh-logo.png" alt="Lord Ganesha" class="ganesh-logo">
+
     <div class="flower">❧</div>
     <p class="eyebrow">A New Beginning</p>
     <div class="flower">❧ ♥ ❧</div>
@@ -473,8 +499,9 @@ footer{
 
   <section class="page light pattern section events">
     <div class="flower">❧</div>
-    <p class="eyebrow" style="color:var(--wine)">Save the Dates</p>
+    <p class="eyebrow" style="color:var(--wine)">Wedding Events</p>
     <h2 class="section-heading reveal">Wedding<br>Celebrations</h2>
+
     <div class="event-list">
 
       <article class="event reveal">
